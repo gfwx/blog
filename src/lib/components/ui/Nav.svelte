@@ -7,8 +7,8 @@
 	};
 </script>
 
-<div class="navbar bg-base-100 shadow-sm">
-	<a class="flex-1" href="/">gfwx</a>
+<div class="navbar bg-base-100 border-b-[.5px]">
+	<a class="flex-1" href="/">gfwx_</a>
 	<div class="flex-none">
 		<ul class="tabs tabs-border" role="tablist">
 			<li>
