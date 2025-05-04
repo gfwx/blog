@@ -1,4 +1,7 @@
 node_modules
+.svelte_kit
+.prettier*
+
 
 # Output
 .output
