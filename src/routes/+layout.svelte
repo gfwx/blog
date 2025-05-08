@@ -1,12 +1,20 @@
 <script lang="ts">
-	let { children } = $props();
 	import '../app.css';
-	import { app } from '$lib/firebase';
-	import { onMount } from 'svelte';
 	import Nav from '$lib/components/ui/Nav.svelte';
+	import { invalidate } from '$app/navigation';
+	import { onMount } from 'svelte';
+
+	let { data, children } = $props();
+	let { session, supabase } = $derived(data);
 
 	onMount(() => {
-		console.log(app);
+		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+			if (newSession?.expires_at !== session?.expires_at) {
+				invalidate('supabase:auth');
+			}
+		});
+
+		return () => data.subscription.unsubscribe();
 	});
 </script>
 

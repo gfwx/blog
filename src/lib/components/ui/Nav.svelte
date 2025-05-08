@@ -7,9 +7,9 @@
 	};
 </script>
 
-<div class="navbar bg-base-100 border-b-[.5px]">
-	<a class="flex-1" href="/">
-		gfwx<span class="flicker">_</span>
+<div class="navbar bg-base-100 border-b-[.5px] px-4">
+	<a class="flex-1 font-serif font-bold text-md" href="/">
+		Echoes<span class="flicker">_</span>
 	</a>
 	<div class="flex-none">
 		<ul class="tabs tabs-border" role="tablist">
