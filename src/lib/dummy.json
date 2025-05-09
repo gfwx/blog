@@ -2,46 +2,56 @@
   {
     "id": "e7f52a3c-2aaf-44c2-90d9-1f134da7f3b6",
     "author": "SK",
+    "email": "test@example.com",
     "title": "Understanding the Basics of SvelteKit",
     "caption": "An introduction to routing, layouts, and rendering in SvelteKit.",
     "content": "SvelteKit is a framework for building web applications using Svelte...",
     "created_at": "2025-04-01T10:15:00.000Z",
-    "updated_at": "2025-04-01T10:15:00.000Z"
+    "updated_at": "2025-04-01T10:15:00.000Z",
+    "slug": "understanding-the-basics-of-sveltekit"
   },
   {
     "id": "3c3a2df9-1e63-4de3-933c-2b8b8f2a2c5f",
     "author": "SK",
+    "email": "test@example.com",
     "title": "DaisyUI with Tailwind CSS",
     "caption": "How to use DaisyUI components with your Tailwind-based project.",
     "content": "DaisyUI is a plugin for Tailwind that provides pre-styled UI components...",
     "created_at": "2025-03-15T08:00:00.000Z",
-    "updated_at": "2025-03-15T08:00:00.000Z"
+    "updated_at": "2025-03-15T08:00:00.000Z",
+    "slug": "daisyui-with-tailwind-css"
   },
   {
     "id": "1bafbb43-b5fd-43b4-b8fc-d7980c27f999",
     "author": "SK",
+    "email": "test@example.com",
     "title": "Creating a Sticky Sidebar in Svelte",
     "caption": "A step-by-step guide to implementing a sticky sidebar layout.",
     "content": "To create a sticky sidebar in Svelte, use Tailwind’s sticky utility...",
     "created_at": "2025-02-25T12:30:00.000Z",
-    "updated_at": "2025-02-25T12:30:00.000Z"
+    "updated_at": "2025-02-25T12:30:00.000Z",
+    "slug": "creating-a-sticky-sidebar-in-svelte"
   },
   {
     "id": "bd529038-6ae2-4f7d-a582-c6e05a3d1621",
     "author": "SK",
+    "email": "test@example.com",
     "title": "Deploying SvelteKit to Vercel",
     "caption": "Learn how to deploy your SvelteKit app using Vercel in minutes.",
     "content": "Vercel is a great platform for hosting frontend apps. You can deploy...",
     "created_at": "2025-01-10T14:45:00.000Z",
-    "updated_at": "2025-01-10T14:45:00.000Z"
+    "updated_at": "2025-01-10T14:45:00.000Z",
+    "slug": "deploying-sveltekit-to-vercel"
   },
   {
     "id": "5fced324-197c-40ae-9331-7c1716a1764e",
     "author": "SK",
+    "email": "test@example.com",
     "title": "Optimizing Performance in Svelte Apps",
     "caption": "Tips and tools to improve speed and responsiveness in Svelte.",
     "content": "Performance in Svelte apps can be improved by using reactive declarations...",
     "created_at": "2024-12-20T09:00:00.000Z",
-    "updated_at": "2024-12-20T09:00:00.000Z"
+    "updated_at": "2024-12-20T09:00:00.000Z",
+    "slug": "optimizing-performance-in-svelte-apps"
   }
 ]

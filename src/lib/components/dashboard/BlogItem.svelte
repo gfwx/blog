@@ -1,22 +1,23 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import placeholderImage from '$lib/static/placeholder-img.jpg';
+	import type { MouseEventHandler } from 'svelte/elements';
 
 	export let title: string = 'Sample Title';
 	export let date: Date = new Date(2023, 4, 4);
 	export let desc_minified: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 	export let author: string = 'SK';
+	export let handler: MouseEventHandler<EventTarget>;
 	export let thumbnail_url: string = 'https://example.com/thumbnail.jpg';
 
 	// export let id: string;
 </script>
 
 <div
-	class="flex flex-between w-full items-center hover:cursor-pointer border-[.5px] border-transparent hover:border-base-content"
-	onclick={selectArticle}
+	class="flex flex-between w-full items-center hover:cursor-pointer border-[.5px] border-transparent hover:border-base-content p-2 rounded-sm"
+	onclick={handler}
 	onkeydown={(e) => {
 		if (e.key === 'Enter') {
-			selectArticle();
+			handler;
 		}
 	}}
 	aria-label={title}

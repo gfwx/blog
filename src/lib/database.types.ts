@@ -41,7 +41,9 @@ export type Database = {
           caption: string
           content: string
           created_at: string
+          email: string
           id: string
+          slug: string
           title: string
           updated_at: string
         }
@@ -50,7 +52,9 @@ export type Database = {
           caption: string
           content?: string
           created_at?: string
+          email?: string
           id?: string
+          slug?: string
           title: string
           updated_at?: string
         }
@@ -59,7 +63,9 @@ export type Database = {
           caption?: string
           content?: string
           created_at?: string
+          email?: string
           id?: string
+          slug?: string
           title?: string
           updated_at?: string
         }
