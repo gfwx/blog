@@ -25,7 +25,6 @@
 			grouped[year][month].push(item);
 		}
 
-		console.log(Object.entries(grouped));
 		return grouped;
 	}
 
@@ -68,7 +67,7 @@
 						<ul class="ml-2">
 							{#each monthItems as item}
 								<li class="list-none">
-									<a href={`/blog/${item.id}`} class="text-sm link link-hover"> {item.title}</a>
+									<a href={`/blog/${item.slug}`} class="text-sm link link-hover"> {item.title}</a>
 								</li>
 							{/each}
 						</ul>

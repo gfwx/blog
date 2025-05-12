@@ -35,35 +35,55 @@ export type Database = {
           },
         ]
       }
+      article_data: {
+        Row: {
+          content: string | null
+          image_url: string | null
+          last_updated: string | null
+          slug: string
+        }
+        Insert: {
+          content?: string | null
+          image_url?: string | null
+          last_updated?: string | null
+          slug: string
+        }
+        Update: {
+          content?: string | null
+          image_url?: string | null
+          last_updated?: string | null
+          slug?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_data_slug_fkey"
+            columns: ["slug"]
+            isOneToOne: true
+            referencedRelation: "articles"
+            referencedColumns: ["slug"]
+          },
+        ]
+      }
       articles: {
         Row: {
-          author: string
           caption: string
-          content: string
           created_at: string
-          email: string
           id: string
           slug: string
           title: string
           updated_at: string
         }
         Insert: {
-          author?: string
           caption: string
-          content?: string
           created_at?: string
-          email?: string
           id?: string
           slug?: string
           title: string
           updated_at?: string
         }
         Update: {
-          author?: string
           caption?: string
-          content?: string
           created_at?: string
-          email?: string
           id?: string
           slug?: string
           title?: string
@@ -76,7 +96,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      insert_into_trigger_with_data: {
+        Args: { slug: string; id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
