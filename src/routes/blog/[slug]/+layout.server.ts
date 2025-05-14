@@ -5,7 +5,7 @@ export const load: LayoutServerLoad = async ({ locals: { supabase }, params }) =
 
   const { data: article, error } = await supabase
     .from('articles')
-    .select('title, caption, slug, article_data(content, last_updated, image_url)')
+    .select('title, caption, updated_at, created_at, slug, article_data(content, image_url)')
     .eq('slug', slug)
     .single();
 
@@ -23,7 +23,8 @@ export const load: LayoutServerLoad = async ({ locals: { supabase }, params }) =
       title: article.title,
       caption: article.caption,
       content: article.article_data.content,
-      last_updated: article.article_data.last_updated,
+      last_updated: article.updated_at,
+      created_at: article.created_at,
       image_url: article.article_data.image_url
     })
   };

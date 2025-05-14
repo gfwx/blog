@@ -4,7 +4,6 @@
 
 @plugin 'daisyui';
 
-
 @plugin "daisyui/theme" {
     name: "garden";
     default: true;

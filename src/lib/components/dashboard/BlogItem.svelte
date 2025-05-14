@@ -5,9 +5,7 @@
 	export let title: string = 'Sample Title';
 	export let date: Date = new Date(2023, 4, 4);
 	export let desc_minified: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-	export let author: string = 'SK';
 	export let handler: MouseEventHandler<EventTarget>;
-	export let thumbnail_url: string = 'https://example.com/thumbnail.jpg';
 
 	// export let id: string;
 </script>
@@ -23,14 +21,11 @@
 	aria-label={title}
 	role={'button'}
 >
-	<div class="flex gap-2 items-center">
-		<img src={placeholderImage} width={100} alt="thumbnail" />
-		<div class="flex flex-col gap-8">
-			<div class="flex flex-col">
-				<h2 class="text-lg font-serif text-bold">{title}</h2>
-				<p class="text-sm">{desc_minified}</p>
-			</div>
-			<p class="text-sm">{date.toDateString()}</p>
+	<div class="flex gap-9 items-end justify-between">
+		<div class="flex flex-col">
+			<h3 class="font-serif text-bold">{title}</h3>
+			<p class="text-sm">{desc_minified}</p>
 		</div>
+		<p class="text-sm">{date.toDateString()}</p>
 	</div>
 </div>
