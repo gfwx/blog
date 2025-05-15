@@ -10,8 +10,6 @@
 	const { articles } = $derived(data);
 	const { featured_article } = $derived(data);
 
-	console.log(featured_article);
-
 	let loading = $state(false);
 
 	const handleBlogItemClick = async (blogId: string) => {
@@ -40,7 +38,7 @@
 				<h1 class="mx-4 mt-2 text-sm font-sans font-bold">FEATURED ARTICLE (the one below)</h1>
 				<div class="divider m-0 p-0"></div>
 			</div>
-			<section class="mx-8">
+			<section class="mx-8 md:mt-8 mt-4">
 				{#if featured_article}
 					<Article
 						title={featured_article.title}

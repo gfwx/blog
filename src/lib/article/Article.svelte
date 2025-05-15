@@ -14,17 +14,21 @@
 	};
 </script>
 
-<main class=" flex w-full justify-center flex-col items-center">
+<main class=" flex w-full justify-center flex-col items-center md:gap-8 gap-4">
 	<section class="flex flex-col gap-2 w-full">
-		<h1 class="text-3xl font-bold font-serif">{title}</h1>
-		<p class="text-lg">{caption}</p>
+		<div>
+			<h1 class="text-3xl font-bold font-serif">{title}</h1>
+			<b class="block">posted: {getFullDate(created_at ?? created_at)}</b>
+			{#if last_updated}
+				<i class="block">updated: {getFullDate(last_updated ?? created_at)}</i>
+			{/if}
+		</div>
 		{#if image_url}
-			<img src={image_url} alt="" width={800} />
+			<img src={image_url} alt="" width={600} />
 		{/if}
-		<i>Last updated: {getFullDate(last_updated ?? created_at)}</i>
+		<div class="flex">
+			<blockquote class="blockquote">{caption}</blockquote>
+		</div>
 	</section>
 	<article class="markdown w-full">{@html marked.parse(content)}</article>
 </main>
-
-<style global>
-</style>

@@ -75,6 +75,7 @@
 }
 
 @theme {
+    --font-awesome: 'Papyrus';
     --font-serif: 'PT Serif', system-ui;
     --font-sans: 'PT Sans', system-ui;
 }
@@ -85,4 +86,49 @@ html {
 
 .markdown h1 {
     font-size: 2rem;
+    font-weight: bold;
+}
+
+.markdown h2 {
+    font-size: 1.75rem;
+}
+
+.markdown h3 {
+    font-size: 1.5rem;
+}
+
+.markdown a {
+    text-decoration: underline;
+}
+
+.markdown a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.markdown a:clicked {
+    color: purple;
+}
+
+.font-awesome {
+    font-family: 'Papyrus', system-ui;
+}
+
+blockquote {
+    @apply italic;
+    @apply relative;
+    @apply pl-6;
+    @apply pt-1;
+}
+
+
+blockquote::before {
+    @apply bg-base-content;
+    content: "";
+    width: 4px;
+    opacity: .3;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
 }
