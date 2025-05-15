@@ -2,7 +2,6 @@ import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ss
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
 import type { LayoutLoad } from './$types'
 import type { Tables } from '$lib/database.types'
-import { setContext } from 'svelte'
 
 type Article = Tables<'articles'>
 
@@ -45,7 +44,14 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
 
   const {
     data: articles
-  } = await supabase.from("articles").select("*") as { data: Article[] }
+  } = await supabase.from("articles").select("*").order('created_at') as { data: Article[] }
 
-  return { session, supabase, user, articles }
+  const { data: featured_article } = await supabase
+    .from("articles")
+    .select('title, caption, updated_at, created_at, slug, article_data(content, image_url)')
+    .eq('slug', articles[0].slug)
+    .order('created_at')
+    .single();
+
+  return { session, supabase, user, articles, featured_article }
 }
