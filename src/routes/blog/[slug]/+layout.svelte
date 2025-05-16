@@ -8,8 +8,10 @@
 	const rendered_data: RenderedArticle = JSON.parse(article);
 </script>
 
-<a href="../">Go back</a>
-<main class="ml-36 my-4">
+<div class="block p-4">
+	<a href="../" class="underline hover:text-blue-600 w-fit">Back</a>
+</div>
+<main class="my-2 flex flex-col gap-4 items-center">
 	<Article
 		title={rendered_data.title}
 		caption={rendered_data.caption}

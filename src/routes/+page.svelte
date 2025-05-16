@@ -3,6 +3,7 @@
 	import BlogItem from '$lib/components/dashboard/BlogItem.svelte';
 	import Sidebar from '$lib/components/ui/Sidebar.svelte';
 	import Article from '$lib/article/Article.svelte';
+	import Divider from '$lib/components/ui/Divider.svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 
@@ -34,11 +35,7 @@
 <div class="flex flex-col md:flex-row w-full">
 	<main class="flex-1">
 		<section class="flex flex-col w-full">
-			<div>
-				<h1 class="mx-4 mt-2 text-sm font-sans font-bold">FEATURED ARTICLE (the one below)</h1>
-				<div class="divider m-0 p-0"></div>
-			</div>
-			<section class="mx-8 md:mt-8 mt-4">
+			<section class="mx-4 md:mt-8 mt-4">
 				{#if featured_article}
 					<Article
 						title={featured_article.title}

@@ -14,7 +14,7 @@
 	};
 </script>
 
-<main class=" flex w-full justify-center flex-col items-center md:gap-8 gap-4">
+<main class="px-8 flex w-full max-w-3xl justify-center flex-col items-center md:gap-8 gap-4">
 	<section class="flex flex-col gap-2 w-full">
 		<div>
 			<h1 class="text-3xl font-bold font-serif">{title}</h1>
@@ -24,7 +24,7 @@
 			{/if}
 		</div>
 		{#if image_url}
-			<img src={image_url} alt="" width={600} />
+			<img src={image_url} alt="" class="w-full" />
 		{/if}
 		<div class="flex">
 			<blockquote class="blockquote">{caption}</blockquote>

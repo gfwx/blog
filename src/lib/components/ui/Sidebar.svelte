@@ -42,9 +42,9 @@
 </script>
 
 <aside
-	class="w-full md:w-72 shrink-0 md:sticky md:top-0 md:self-start md:h-screen p-4 bg-base-100 border-l-[0.5px] border-t md:border-t-0"
+	class="w-full md:w-72 shrink-0 md:block hidden md:sticky md:top-0 md:self-start md:h-screen bg-base-100 md:border-l-[0.5px] border-t-0 relative"
 >
-	<div class="mb-4">
+	<div class="pt-4 px-4">
 		<input
 			type="text"
 			class="input input-bordered w-full"
@@ -54,12 +54,12 @@
 	</div>
 
 	{#if Object.entries(grouped).length == 0}
-		<div class="mb-2 flex justify-center items-center">
+		<div class="mb-2 pt-4 flex justify-center items-center px-4">
 			<p>No results found</p>
 		</div>
 	{:else}
 		{#each Object.entries(grouped) as [year, months]}
-			<div class="mb-2">
+			<div class="mb-2 p-4">
 				<h2 class="text-md font-bold font-serif">{year}</h2>
 				{#each Object.entries(months) as [month, monthItems]}
 					<div class="ml-2 mb-1">
@@ -74,7 +74,6 @@
 					</div>
 				{/each}
 			</div>
-			<div class="divider"></div>
 		{/each}
 	{/if}
 </aside>
