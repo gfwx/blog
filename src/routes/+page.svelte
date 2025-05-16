@@ -3,7 +3,6 @@
 	import BlogItem from '$lib/components/dashboard/BlogItem.svelte';
 	import Sidebar from '$lib/components/ui/Sidebar.svelte';
 	import Article from '$lib/article/Article.svelte';
-	import Divider from '$lib/components/ui/Divider.svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 
