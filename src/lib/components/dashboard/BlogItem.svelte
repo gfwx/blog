@@ -26,7 +26,7 @@
 	</div>
 	<div class="flex gap-16 items-end flex-1">
 		<div class="flex flex-col gap-1">
-			<h3 class="font-serif font-bold uppercase text-xl">{title}</h3>
+			<h3 class="font-serif font-bold text-xl">{title}</h3>
 			<p class="text-sm">{desc_minified}</p>
 		</div>
 		<p class="text-sm">{date.toDateString()}</p>

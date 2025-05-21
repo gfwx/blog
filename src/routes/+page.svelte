@@ -5,6 +5,7 @@
 	import Article from '$lib/article/Article.svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { fade } from 'svelte/transition';
+	import type { error } from '@sveltejs/kit';
 
 	let { data } = $props();
 	const { articles } = $derived(data);
@@ -36,6 +37,7 @@
 		<section class="flex flex-col w-full">
 			<section class="mx-4 md:mt-8 mt-4">
 				{#if featured_article}
+					<!-- known bug where one-to-one join types are broken and expect an array. hence the squiggly lines below -->
 					<Article
 						title={featured_article.title}
 						caption={featured_article.caption}
