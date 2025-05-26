@@ -37,7 +37,6 @@
 		<section class="flex flex-col w-full">
 			<section class="mx-4 md:mt-8 mt-4">
 				{#if featured_article}
-					<!-- known bug where one-to-one join types are broken and expect an array. hence the squiggly lines below -->
 					<Article
 						title={featured_article.title}
 						caption={featured_article.caption}
@@ -46,11 +45,13 @@
 						last_updated={featured_article.updated_at}
 						image_url={featured_article.article_data.image_url}
 					/>
+				{:else}
+					<!-- Handle the case where featured_article is null or undefined -->
+					<p class="mx-4">No featured article yet.</p>
 				{/if}
 			</section>
 
-			<div>
-				<div class="divider m-0 p-0"></div>
+			<div class="divider m-0 p-0">
 				<h1 class="mx-4 text-sm font-sans font-bold">MORE ARTICLES</h1>
 				<div class="divider m-0 p-0"></div>
 			</div>
