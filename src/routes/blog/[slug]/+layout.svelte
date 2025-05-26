@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Article from '$lib/article/Article.svelte';
 	import ProgressBar from '$lib/article/ProgressBar.svelte';
+	import type { RenderedArticle } from '$lib/database.types.js';
+
 	let { data } = $props();
 	let { article } = $derived(data);
-	import type { RenderedArticle } from '$lib/database.types.js';
 
 	const rendered_data: RenderedArticle = JSON.parse(article);
 </script>

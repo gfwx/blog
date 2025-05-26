@@ -5,7 +5,6 @@
 	import Article from '$lib/article/Article.svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { fade } from 'svelte/transition';
-	import type { error } from '@sveltejs/kit';
 
 	let { data } = $props();
 	const { articles } = $derived(data);
