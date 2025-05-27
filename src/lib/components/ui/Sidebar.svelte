@@ -68,7 +68,7 @@
 						<ul class="ml-2">
 							{#each monthItems as item}
 								<li class="list-none">
-									<a href={`/blog/${item.slug}`} class="text-sm link link-hover"> {item.title}</a>
+									<a href={`/posts/${item.slug}`} class="text-sm link link-hover"> {item.title}</a>
 								</li>
 							{/each}
 						</ul>
