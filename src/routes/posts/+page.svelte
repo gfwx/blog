@@ -5,7 +5,6 @@
 	const { data } = $props();
 	const { articles } = $derived(data);
 
-	console.log(articles);
 	let loading = $state(false);
 
 	const handleBlogItemClick = async (blogId: string) => {
