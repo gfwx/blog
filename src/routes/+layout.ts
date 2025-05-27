@@ -44,7 +44,7 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
 
   const {
     data: articles
-  } = await supabase.from("articles").select("*").order('created_at') as { data: Article[] }
+  } = await supabase.from("articles").select("*").order('created_at', { ascending: false }) as { data: Article[] }
 
   const { data: featured_article } = await supabase
     .from("articles")

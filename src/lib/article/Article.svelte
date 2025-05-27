@@ -30,5 +30,5 @@
 			<blockquote class="blockquote">{caption}</blockquote>
 		</div>
 	</section>
-	<article class="markdown w-full">{@html marked.parse(content)}</article>
+	<article class="markdown w-full pb-8">{@html marked.parse(content)}</article>
 </main>
