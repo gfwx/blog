@@ -23,15 +23,15 @@
 					class="tab tab-active"
 					class:tab-active={active.startsWith('/') &&
 						!active.startsWith('/about') &&
-						!active.startsWith('/blog')}>home</button
+						!active.startsWith('/posts')}>home</button
 				>
 			</li>
 			<li>
 				<button
-					onclick={() => handleClick('/blog')}
+					onclick={() => handleClick('/posts')}
 					role="tab"
 					class="tab tab-active"
-					class:tab-active={active.startsWith('/blog')}>blog</button
+					class:tab-active={active.startsWith('/posts')}>blog</button
 				>
 			</li>
 			<li>
