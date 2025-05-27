@@ -7,6 +7,7 @@
 			[month: string]: Article[];
 		};
 	};
+
 	export let blogItems: Article[] = []; // Array<Article>
 
 	function groupByYearMonth(items: Article[]): GroupedArticles {

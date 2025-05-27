@@ -15,7 +15,7 @@
 	const handleBlogItemClick = async (blogId: string) => {
 		const selectedArticle = articles.filter((item) => item.id === blogId);
 		loading = true;
-		goto(`/blog/${selectedArticle[0].slug}`);
+		goto(`/posts/${selectedArticle[0].slug}`);
 	};
 
 	afterNavigate(() => {
