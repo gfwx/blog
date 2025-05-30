@@ -4,7 +4,7 @@
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	let { data, children } = $props();
+	let { data, children, user } = $props();
 	let { session, supabase } = $derived(data);
 
 	onMount(() => {
@@ -16,7 +16,13 @@
 
 		return () => data.subscription.unsubscribe();
 	});
+
+	const handleLogout = async () => {
+		const { error } = await supabase.auth.signOut();
+		console.log(user);
+		invalidate('supabase:auth');
+	};
 </script>
 
-<Nav />
+<Nav {user} {handleLogout} />
 {@render children()}

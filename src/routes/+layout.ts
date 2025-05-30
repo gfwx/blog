@@ -39,10 +39,6 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
   } = await supabase.auth.getSession()
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  const {
     data: articles
   } = await supabase.from("articles").select("*").order('created_at', { ascending: false }) as { data: Article[] }
 
@@ -53,5 +49,5 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
     .order('created_at')
     .single();
 
-  return { session, supabase, user, articles, featured_article }
+  return { session, supabase, articles, featured_article }
 }
