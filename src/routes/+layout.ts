@@ -44,12 +44,13 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
 
   const {
     data: articles
-  } = await supabase.from("articles").select("*").order('created_at', { ascending: false }) as { data: Article[] }
+  } = await supabase.from("articles").select("*").eq('draft', false).order('created_at', { ascending: false }) as { data: Article[] }
 
   const { data: featured_article } = await supabase
     .from("articles")
     .select('title, caption, updated_at, created_at, slug, article_data(content, image_url)')
     .eq('slug', articles[0].slug)
+    .eq('draft', false)
     .order('created_at')
     .single();
 

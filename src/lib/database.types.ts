@@ -68,6 +68,7 @@ export type Database = {
         Row: {
           caption: string
           created_at: string
+          draft: boolean
           id: string
           slug: string
           title: string
@@ -76,6 +77,7 @@ export type Database = {
         Insert: {
           caption: string
           created_at?: string
+          draft?: boolean
           id?: string
           slug?: string
           title: string
@@ -84,6 +86,7 @@ export type Database = {
         Update: {
           caption?: string
           created_at?: string
+          draft?: boolean
           id?: string
           slug?: string
           title?: string

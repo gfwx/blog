@@ -32,7 +32,7 @@
 	{#if articles.length === 0}
 		<p class="mx-4">nothin' here to see :-/</p>
 	{:else}
-		{#each articles as article, idx}
+		{#each articles.filter((article) => article.draft === false) as article, idx}
 			<div class="mx-4">
 				<BlogItem
 					title={article.title}
