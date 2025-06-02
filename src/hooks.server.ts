@@ -68,6 +68,24 @@ const authGuard: Handle = async ({ event, resolve }) => {
   event.locals.session = session;
   event.locals.user = user;
 
+  if (session && user) {
+    try {
+      const token = session.access_token;
+      const decoded_token = jwtDecode(token);
+      //@ts-ignore because I know better than typescript ty
+      const user_role = decoded_token.role || decoded_token.user_role || 'noob';
+
+      event.cookies.set('user_data', JSON.stringify({
+        id: user.id,
+        email: user.email,
+        role: user_role,
+      }), { path: '/', httpOnly: true, secure: true, maxAge: 60 * 60 * 24 * 30 })
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+
   if (!event.locals.session && event.url.pathname.startsWith('/p')) {
     redirect(303, '/auth')
   }
