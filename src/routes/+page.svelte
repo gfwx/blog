@@ -8,7 +8,7 @@
 
 	let { data } = $props();
 	const { articles } = $derived(data);
-	const { featured_article } = $derived(data);
+	const { featured } = $derived(data);
 
 	let loading = $state(false);
 
@@ -35,17 +35,17 @@
 	<main class="flex-1">
 		<section class="flex flex-col w-full">
 			<section class="mx-4 md:mt-8 mt-4">
-				{#if featured_article}
+				{#if featured}
 					<Article
-						title={featured_article.title}
-						caption={featured_article.caption}
-						content={featured_article.article_data.content}
-						created_at={featured_article.created_at}
-						last_updated={featured_article.updated_at}
-						image_url={featured_article.article_data.image_url}
+						title={featured.title}
+						caption={featured.caption}
+						content={featured.content}
+						created_at={featured.created_at}
+						last_updated={featured.updated_at}
+						image_url={featured.image_url}
 					/>
 				{:else}
-					<!-- Handle the case where featured_article is null or undefined -->
+					<!-- Handle the case where featured is null or undefined -->
 					<p class="mx-4">No featured article yet.</p>
 				{/if}
 			</section>
