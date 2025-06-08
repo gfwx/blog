@@ -2,6 +2,7 @@ import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ss
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
 import type { LayoutLoad } from './$types'
 import type { Tables } from '$lib/database.types'
+import type { APIResponseSingle } from '$lib/types'
 
 type Article = Tables<'articles'>
 
@@ -38,21 +39,13 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
     data: { session },
   } = await supabase.auth.getSession()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
 
-  const {
-    data: articles
-  } = await supabase.from("articles").select("*").eq('draft', false).order('created_at', { ascending: false }) as { data: Article[] }
+  const articleDataResponse = await fetch('/api/posts');
+  const featuredArticleResponse = await fetch('/api/posts/featured');
 
-  const { data: featured_article } = await supabase
-    .from("articles")
-    .select('title, caption, updated_at, created_at, slug, article_data(content, image_url)')
-    .eq('slug', articles[0].slug)
-    .eq('draft', false)
-    .order('created_at')
-    .single();
+  const { featured }: { featured: APIResponseSingle } = await featuredArticleResponse.json();
+  const { articles }: { articles: Article[] } = await articleDataResponse.json();
 
-  return { session, supabase, user, articles, featured_article }
+
+  return { session, supabase, articles, featured }
 }

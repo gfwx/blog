@@ -1,12 +1,11 @@
 <script lang="ts">
 	import Article from '$lib/article/Article.svelte';
 	import ProgressBar from '$lib/article/ProgressBar.svelte';
-	import type { RenderedArticle } from '$lib/database.types.js';
 
 	let { data } = $props();
 	let { article } = $derived(data);
 
-	const rendered_data: RenderedArticle = JSON.parse(article);
+	const rendered_data = JSON.parse(article);
 </script>
 
 <div class="block p-4">

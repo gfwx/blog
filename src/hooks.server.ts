@@ -1,6 +1,7 @@
 import { createServerClient } from '@supabase/ssr'
 import { type Handle, redirect } from '@sveltejs/kit'
 import { sequence } from '@sveltejs/kit/hooks'
+import { jwtDecode } from 'jwt-decode'
 
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public'
 
@@ -63,16 +64,34 @@ const supabase: Handle = async ({ event, resolve }) => {
 }
 
 const authGuard: Handle = async ({ event, resolve }) => {
-  const { session, user } = await event.locals.safeGetSession()
-  event.locals.session = session
-  event.locals.user = user
+  const { session, user } = await event.locals.safeGetSession();
+  event.locals.session = session;
+  event.locals.user = user;
 
-  if (!event.locals.session && event.url.pathname.startsWith('/admin')) {
+  if (session && user) {
+    try {
+      const token = session.access_token;
+      const decoded_token = jwtDecode(token);
+      //@ts-ignore because I know better than typescript ty
+      const user_role = decoded_token.role || decoded_token.user_role || 'noob';
+
+      event.cookies.set('user_data', JSON.stringify({
+        id: user.id,
+        email: user.email,
+        role: user_role,
+      }), { path: '/', httpOnly: true, secure: true, maxAge: 60 * 60 * 24 * 30 })
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+
+  if (!event.locals.session && event.url.pathname.startsWith('/p')) {
     redirect(303, '/auth')
   }
 
   if (event.locals.session && event.url.pathname === '/auth') {
-    redirect(303, '/admin')
+    redirect(303, '/p')
   }
 
   return resolve(event)

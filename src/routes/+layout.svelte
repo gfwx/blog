@@ -3,9 +3,12 @@
 	import Nav from '$lib/components/ui/Nav.svelte';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { jwtDecode } from 'jwt-decode';
 
 	let { data, children } = $props();
 	let { session, supabase } = $derived(data);
+
+	let user = $state(null);
 
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
@@ -16,7 +19,13 @@
 
 		return () => data.subscription.unsubscribe();
 	});
+
+	const handleLogout = async () => {
+		const { error } = await supabase.auth.signOut();
+		console.log(user);
+		invalidate('supabase:auth');
+	};
 </script>
 
-<Nav />
+<Nav {user} {handleLogout} />
 {@render children()}

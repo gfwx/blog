@@ -69,6 +69,7 @@ export type Database = {
           caption: string
           created_at: string
           draft: boolean
+          featured: boolean
           id: string
           slug: string
           title: string
@@ -78,6 +79,7 @@ export type Database = {
           caption: string
           created_at?: string
           draft?: boolean
+          featured?: boolean
           id?: string
           slug?: string
           title: string
@@ -87,6 +89,7 @@ export type Database = {
           caption?: string
           created_at?: string
           draft?: boolean
+          featured?: boolean
           id?: string
           slug?: string
           title?: string

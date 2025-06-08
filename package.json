@@ -38,6 +38,7 @@
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.8",
     "@tailwindcss/vite": "^4.1.7",
+    "jwt-decode": "^4.0.0",
     "marked": "^15.0.12",
     "tailwindcss": "^4.1.7"
   }
